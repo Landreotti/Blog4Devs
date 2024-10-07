@@ -23,7 +23,7 @@ namespace Blog4Devs.Controllers
         // GET: Comments
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Comment.Include(c => c.Post);
+            var applicationDbContext = _context.Comment.Include(c => c.Posts);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -36,7 +36,7 @@ namespace Blog4Devs.Controllers
             }
 
             var comment = await _context.Comment
-                .Include(c => c.Post)
+                .Include(c => c.Posts)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (comment == null)
             {
@@ -133,7 +133,7 @@ namespace Blog4Devs.Controllers
             }
 
             var comment = await _context.Comment
-                .Include(c => c.Post)
+                .Include(c => c.Posts)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (comment == null)
             {
