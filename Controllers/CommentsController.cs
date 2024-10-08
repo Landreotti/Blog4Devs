@@ -58,7 +58,7 @@ namespace Blog4Devs.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,AuthorName,Content,CreatedAt,PostId")] Comment comment)
+        public async Task<IActionResult> Create([Bind("Id,AuthorName,Content,CreatedAt,PostId")] Comments comment)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace Blog4Devs.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,AuthorName,Content,CreatedAt,PostId")] Comment comment)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,AuthorName,Content,CreatedAt,PostId")] Comments comment)
         {
             if (id != comment.Id)
             {
