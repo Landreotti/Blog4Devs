@@ -75,13 +75,13 @@ A estrutura do projeto é organizada da seguinte forma:
 
 + cd src/Blog.Mvc/   
 + dotnet run
-+ Acesse a aplicação em: [LocalHost](http://localhost:5000).
++ Acesse a aplicação em: [LocalHost](https://localhost:44351/).
 
 **4. Executar a API**:
 
 + cd src/Blog.Api/
 + dotnet run
-+ Acesse a documentação da API em: [Swagger](http://localhost:5001/swagger).
++ Acesse a documentação da API em: [Swagger](https://localhost:44315/swagger/index.html).
 
 # 7. Instruções de Configuração
 
@@ -91,7 +91,7 @@ A estrutura do projeto é organizada da seguinte forma:
 # 8. Documentação da API
 A documentação da API está disponível através do Swagger. Após iniciar a API, acesse a documentação em:
 
-[Swagger](http://localhost:5001/swagger).
+[Swagger](https://localhost:44315/swagger/index.html).
 
 # 9. Avaliação
 
