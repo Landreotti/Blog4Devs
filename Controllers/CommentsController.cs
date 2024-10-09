@@ -23,7 +23,7 @@ namespace Blog4Devs.Controllers
         // GET: Comments
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Comment.Include(c => c.Posts);
+            var applicationDbContext = _context.Comment;
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -36,7 +36,6 @@ namespace Blog4Devs.Controllers
             }
 
             var comment = await _context.Comment
-                .Include(c => c.Posts)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (comment == null)
             {
@@ -62,9 +61,15 @@ namespace Blog4Devs.Controllers
         {
             if (ModelState.IsValid)
             {
-                comment.Id = Guid.NewGuid();
-                _context.Add(comment);
-                await _context.SaveChangesAsync();
+                try{
+                    comment.Id = Guid.NewGuid();
+                    _context.Add(comment);
+                    await _context.SaveChangesAsync();
+                }
+                   catch (Exception ex)
+                {
+                    throw ex;
+                }
                 return RedirectToAction(nameof(Index));
             }
             ViewData["PostId"] = new SelectList(_context.Posts, "Id", "Id", comment.PostId);
@@ -133,7 +138,6 @@ namespace Blog4Devs.Controllers
             }
 
             var comment = await _context.Comment
-                .Include(c => c.Posts)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (comment == null)
             {
