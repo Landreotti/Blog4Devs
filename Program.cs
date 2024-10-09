@@ -31,10 +31,13 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+// Add Roouting
 app.UseRouting();
 
+// Add Authorization
 app.UseAuthorization();
 
+// Add Default Route /
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

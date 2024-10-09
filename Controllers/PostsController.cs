@@ -58,9 +58,16 @@ namespace Blog4Devs.Controllers
         {
             if (ModelState.IsValid)
             {
-                posts.Id = Guid.NewGuid();
-                _context.Add(posts);
-                await _context.SaveChangesAsync();
+                try
+                {
+                    posts.Id = Guid.NewGuid();
+                    _context.Add(posts);
+                    await _context.SaveChangesAsync();
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
                 return RedirectToAction(nameof(Index));
             }
             return View(posts);
